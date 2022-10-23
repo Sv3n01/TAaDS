@@ -1,0 +1,1724 @@
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Module manual for the course of studies 
+ 
+Applied Computer Science (M.Sc.) 
+ 
+Faculty of Computer Science 
+ 
+version 08/2020 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+Module description "Applied Computer Science (M.Sc.)"               Content Page 2 
+Content 
+Obligatory ........................................................................................................................................................... 3 
+Agile Software Development .......................................................................................................................... 4 
+Computer Graphics 1 ...................................................................................................................................... 6 
+Computational Intelligence ............................................................................................................................. 8 
+Distributed Systems ...................................................................................................................................... 10 
+IT Security ..................................................................................................................................................... 12 
+Mobile Systems............................................................................................................................................. 13 
+Service-oriented Networks ............................................................................................................................ 15 
+Signals & Systems ........................................................................................................................................ 16 
+Web Applications .......................................................................................................................................... 18 
+Optional Section I ............................................................................................................................................. 19 
+IT-Security (adv. chapters). ........................................................................................................................... 20 
+Distributed Systems Advanced Chapters. .................................................................................................... 21 
+Semantic Technologies in Distributed Systems ........................................................................................... 22 
+Software Quality............................................................................................................................................ 23 
+Text Mining Search ....................................................................................................................................... 24 
+Optional Section II ............................................................................................................................................ 26 
+eBusiness ..................................................................................................................................................... 27 
+Human-Computer Interaction ....................................................................................................................... 29 
+Image Processing 1 ...................................................................................................................................... 31 
+Image Processing 2 ...................................................................................................................................... 32 
+Media Production 1 ....................................................................................................................................... 33 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+Module description "Applied Computer Science (M.Sc.)"               Content Page 3 
+ 
+ 
+ 
+ 
+Obligatory 
+  
+ 
+ 
+ 
+ 
+ 
+Module description "Applied Computer Science (M.Sc.)"               Content Page 4 
+Module Name Agile Software Development 
+Module Responsibility Prof. Dr. Englmeier 
+Qualification Targets Knowing/Perceiving: Students learn basic concepts and methods of agile 
+software development. Based on their knowledge acquired in the Bachelor 
+course project management they better understand how to adopt the 
+concept of Agility in Project Management. The course addresses in 
+particular the SCRUM methodology. 
+Applying: The students also learn tools supporting agile project 
+management. 
+Analyzing/Evaluating: The course applies and reflects traditional project 
+management tools in the light of agility. This contrasts the two approaches 
+and highlights the differences and the applicability of agility to different 
+project settings. 
+Synthesizing: The course trains also the use of Agile Project Management 
+tools. The students set up a project in teams and manage their fictive work. 
+They are encouraged to link their project management with a project they 
+complete in a different course during the same semester. 
+Content Know Understand Apply Analyze Assess Synthesize 
+Basics in 
+Project 
+Management 
+x x x x   
+Agile 
+Principles x x x x   
+SCRUM x x x x x x 
+Agile Lifecycle x x x x x x 
+Measuring 
+performance x x x x x x 
+ 
+ 
+ 
+ 
+ 
+ 
+Module description "Applied Computer Science (M.Sc.)"               Content Page 5 
+Module Contents 1. Understanding Agile 
+• Values and Principles 
+• Agile Methodologies and Frameworks 
+• Agile Project Management Model 
+2. Adopting the Agile Approach 
+• Initiating an Agile Project 
+• Creating Vision and Charting a Project 
+• Agile Contracts 
+• Agile Documentation 
+3. SCRUM 
+• Fundamental Concepts (User Stories, Iteration, Sprints, Backlogs, 
+…)  
+• Roles and team development 
+• Communication 
+4. Agile Lifecycle 
+• Phase models 
+• Release planning 
+5. Performance measurement 
+Teaching Methods Lectures (2 hours/week), Exercise (2 hours/week) 
+Requirements for 
+Participation 
+Programming skills 
+Literature / Multimedia-
+based Teaching Material 
+Highsmith, J.: “Agile Project Management: Creating Innovative Products”, 
+2nd Edition, Pearson Education/Addison Wesley Professional. 
+Stenbeck, J.: PMI-ACP® and Certified Scrum Professional Exam Prep and 
+Desk Reference.   
+Cohn, M.: “User Stories Applied”, Addison-Wesley, 2004. 
+Online Courses of ACM addressing User Stories und User-Centred Design 
+Applicability Master Applied Computer Science 
+Effort/ 
+Total Workload 
+Total 150 hours. Attendance: 60 hours; Self-study: 20 hours; Practical work: 
+70 hours  
+ECTS/ Emphasis of the 
+Grade for the final Grade 
+5 CP (Emphasis of the Grade for the final Grade 5/120) 
+Performance Record Project work 
+Semester  2nd semester 
+Frequency of the course Once during the academic year (summer semester) 
+Duration One semester 
+Type of Course Obligatory course from the area software engineering 
+ 
+ 
+ 
+ 
+ 
+Module description "Applied Computer Science (M.Sc.)"               Content Page 6 
+Module Name 
+ 
+ 
+Computer Graphics 1 (Computergraphik 1)  
+Module Responsibility 
+ 
+ 
+Prof. Hartmut Seichter, PhD 
+Qualification Targets 
+ 
+Students are able to understand the connection between visual computing 
+techniques and the underlying mathematical concepts and the physiognomy of 
+human beings, especially the visual system. Students further can distinguish the 
+differences between image synthesis methods and related techniques. Students 
+will learn basic techniques of real-time 3D visualization and apply them in 
+exercises. 
+Topics Know Understand Apply Analyze Assess Synthesize 
+Digital Images X X X    
+Display Systems X X X X x  
+3D Model 
+Representations 
+X X X X X  
+Image Synthesis 
+Methods 
+X X X X X  
+Texturing X X X X X  
+Lighting Models X X X    
+Shading Models X X X    
+Applications X X      
+Module Contents 
+ 
+Computer graphics is a melting pot of computer science technologies to present 
+digital content efficiently to users. Topics in this course: 
+• Basic knowledge of the human visual system and perceptual 
+psychological concept. 
+• Image generation and storage 
+• CG in professional application and entertainment 
+• Display technologies 
+• 3D model representations 
+• Transformationpipeline: homogenous coordinates and transformations 
+• Scenegraphs and realtime rendering APIs 
+• Image syntesis methods: Rasterization, Raytracing and beyond. 
+• Geometry and Images: samplingmethods and anti-aliasing strategies 
+• Texturing, Surfaces and Materials  
+• Rendering-Equation and Shadingmodels  
+• Lighting models 
+• Introduction to scientific and information visualization 
+• Graphical User Interfaces 
+Teaching Methods 
+ 
+Lecture (2 SWS), Exercises (2 SWS) 
+Requirements for 
+Participation 
+ 
+• Programming with OOP 
+• Basic knowledge of linear algebra 
+ 
+Literature / Multimedia-
+based Teaching Material 
+• Foley, James D, Andries Van Dam, Steven K Feiner, John F Hughes, 
+and Richard L Phillips. Introduction to Computer Graphics. Vol. 55. 
+Addison-Wesley Reading, 1994. 
+• Folien 
+Applicability 
+ 
+Master  Applied Computer Science, Master Angewandte Medieninformatik 
+Effort / Total Workload Total 150 hours. Attendance: 60 hours, Self-Study: 45 hours, Exam Preparation: 
+45 hours  
+ECTS / Emphasis of the 
+Grade for the final Grade 
+5 CP (Emphasis of the Grade for the final Grade 5/120) 
+Performance Record Oral Exam 
+ 
+ 
+ 
+ 
+ 
+Module description "Applied Computer Science (M.Sc.)"               Content Page 7 
+Semester  
+ 
+1st Semester 
+Frequency of Occurrence 
+ 
+Once during the academic year (winter semester) 
+Duration One Semester 
+Type of Course 
+ 
+Obligatory course from the area of software engineering 
+  
+ 
+ 
+ 
+ 
+ 
+Module description "Applied Computer Science (M.Sc.)"               Content Page 8 
+Module Name 
+ 
+Computational Intelligence 
+Module Responsibility Prof. Dr. Martin Golz  
+Qualification Targets  
+ 
+The students will get the opportunity to 
+- Analyse typical problems of sub-symbolic data and knowledge processing, 
+- Conceive the process chain of adaptive data analytics, 
+- Comprehend and apply methods of the process chain, 
+- Comprehend and apply methods of validation,  
+- Know basic assumptions and models of empirical inference, 
+- Know some of the mathematical background issues. 
+ 
+  
+  
+Contents 
+Know &  
+Comprehend 
+Apply 
+Analyse & 
+Evaluate 
+Synthesise 
+Basics of statistical inference X     
+Process chain of adaptive data analytics X X X  
+Statistical learning theory X    
+Multivariate regression analysis X X X  
+Linear discriminant analysis X X X  
+Kernel function discriminant analysis X X X  
+Linear and non-linear adaptive filtering X X X  
+Deep learning X X X  
+  
+Module Contents 
+ 
+1. Introduction 
+1.1. Five types of statistical inference 
+1.2. Typical applications 
+1.3. Process chain 
+2. Statistical learning theory 
+2.1. Empirical risk minimisation   
+2.2. PAC learning  
+2.3. General learning model  
+2.4. Learning with uniform convergence 
+2.5. Bias complexity trade-off 
+2.6. Vapnik Chervonenkis dimension 
+3. Multivariate, linear regression analysis 
+3.1. Introduction 
+3.2. Model 
+3.3. Principle of maximal a-posteriori probability 
+4. Linear discriminant analysis (LDA) 
+4.1. Introduction 
+4.2. Multi-class LDA 
+4.3. Least squares LDA  
+4.4. Fisher LDA 
+5. Kernel function discriminant analysis 
+5.1. Introduction 
+5.2. Theorem of Cover 
+5.3. Dual representation 
+5.4. Generation of kernel functions 
+5.5. Radial basis function networks 
+5.6. Recursive least squares minimisation 
+5.7. Gaussian processes 
+ 
+ 
+ 
+ 
+ 
+Module description "Applied Computer Science (M.Sc.)"               Content Page 9 
+5.8. Applications 
+6. Adaptive Filter 
+6.1. Linear adaptive filtering 
+6.1.1. Least squares algorithm (LS) 
+6.1.2. Recursive LS algorithm (RLS) 
+6.1.3. Extended RLS algorithm (Ex-RLS) 
+6.2. Non-linear adaptive filtering 
+6.2.1. Reproducing kernel Hilbert space (RKHS) 
+6.2.2. Kernel function LS filtering 
+6.3. Applications 
+7. Deep learning  
+7.1. Characterisation 
+7.2. Representation learning 
+7.3. Deep auto-encoder 
+7.4. Restricted Boltzmann machines 
+7.5. Applications 
+ 
+Teaching methods 
+ 
+- Frontal lectures with 
+o Digital presentation slides,  
+o Demonstration programs 
+- Exercises held in the computer pool 
+o Programming with MATLAB 
+o Clarification of open issues 
+ 
+Requirements for 
+Participation 
+No formal suppositions 
+Basic knowledge in linear algebra, analysis, statistics 
+  
+Literature 
+ 
+The following books are recommended: 
+- Nielsen (2015) Neural networks and deep learning. Determination press 
+- Mohri, Rostamizadeh (2012) Foundations of machine learning. MIT press 
+- Bishop (2006) Pattern recognition & machine learning. Springer 
+- Duda, Hart, Stork (2001) Pattern classification. Wiley 
+ 
+Applicability This module is an obligatory subject.  
+An appropriation to similar majors is possible under stipulation of their 
+examination regulations.  
+ 
+Effort / Total Workload 180 hours, including 60 hours in presence and 120 hours self-instruction 
+ECTS / Emphasis of the 
+Grade for the final Grade 
+5 CP (Emphasis of the Grade for the final Grade 5/120) 
+Performance Record Oral examination (30 minutes) 
+Semester  2nd Semester 
+Frequency of Occurrence Once a year 
+Duration One semester  
+Type of Course Obligatory subject 
+  
+ 
+ 
+ 
+ 
+ 
+Module description "Applied Computer Science (M.Sc.)"               Content Page 10 
+Module Name 
+ 
+ 
+Distributed Systems (Verteilte Systeme) 
+Module Responsibility 
+ 
+ 
+Prof. Dr. Erwin Neuhardt 
+Qualification Targets 
+ 
+Students learn about important architectures which are relied on in the 
+development of distributed systems. They know about the properties of different 
+architectures. They learn about the different technologies for communication 
+and cooperation in distributed systems and are able to apply these technologies 
+in real world projects. 
+Contents Know Understand Apply Analyse Assess Synthesize 
+Architecture x x x    
+Sockets x x x x x  
+RPC / RMI x x x x x  
+JEE x x x x x  
+JMS x x x x x  
+Threads x x x x x   
+Module Contents 
+ 
+Concepts and technologies for the development of distributed Systems: 
+- architectures and properties of distributed systems: client server-
+architectures, transparency 
+- Programming concepts for the communication in distributed systems: 
+sockets, remote procedure call, remote method invocation, component 
+based distributed systems, message based distributed systems 
+- Concurrent programming: java thread, synchronization and 
+coordination, concurrent data structures, java executor framework 
+Teaching Methods 
+ 
+Lecture (2 hours/week), tutorial (2 hours/week) 
+Requirements for 
+Participation 
+ 
+Skills and knowledge in Java programming and software engineering (at least 
+10 ECTS) 
+Literature / Multimedia-
+based Teaching Material 
+Andrew S. Tanenbaum, Maarten van Steen, Distributed Systems, Published by 
+Maarten von Steen, 2017 
+Jendrock, E. et al.: The Java EE Tutorial, Enterprise Java Beans, online on 
+docs.oracle.com 
+w/o author: Sockets, Java Remote Method Invocation, Concurrency, online on 
+docs.oracle.com 
+Brian Goetz, Joshua Bloch, Joseph Bowbeer, Doug Lea, David Holmes, Tim 
+Peierls, Java Concurrency in Practice, Addison-Wesley, 2006 
+David A. Chappell, Richard Monson-Haefel, Java Message Service, O’Reilly 
+2009 
+Applicability 
+ 
+Master of Applied Computer Science, Master Angewandte Medieninformatik 
+Effort / Total Workload Total 150 hours. Attendance: 60 hours, Self-Study: 60 hours, Exam Preparation 
+30 hours 
+ECTS / Emphasis of the 
+Grade for the final Grade 
+5 ECTS (Emphasis of the Grade for the final Grade 5/120) 
+Performance Record Written examination on PC 
+Semester  
+ 
+1st semester 
+Frequency of Occurrence Once during the academic year 
+Duration One semester 
+ 
+Module Name IT Security 
+ 
+ 
+ 
+ 
+ 
+Module description "Applied Computer Science (M.Sc.)"               Content Page 11 
+ 
+ 
+Module Responsibility 
+ 
+ 
+Prof. Ralf C. Staudemeyer, Ph.D. 
+Qualification Targets 
+ 
+In this course students will learn how to determine the level of security of a 
+computer system or service, specify vulnerabilities, and to estimate the potential 
+damage resulting from a successful attack. It covers the basic principles and 
+key concepts for the operation of secure and (mostly) distributed systems, which 
+includes partial components from operating systems and computer networks. 
+The focus of this course is to deepen the understanding of network attacks and 
+the cryptographic techniques to ensure integrity and confidentiality of 
+information. Topics include various sub-components like cryptographic key 
+management, biometrics, authentication in distributed systems, and basic 
+security protocols and standards. 
+Module Contents 
+ 
+The course starts with a general introduction into IT-Security, Cryptography and 
+Privacy-Enhancing Technologies. The main focus of this course is on 
+cryptographic algorithms and security protocols. Principally this module treats a 
+selection of the following topics: 
+• Selected Attacks (attacks analysis, protection mechanisms) 
+• Cryptographic Algorithms (AES, RSA, ECC, MACs, signatures) 
+• Cryptographic Key Management (Diffie-Hellman key exchange, 
+certificates, public-key infrastructure) 
+• Digital Identity (multi-factor authentication, challenge-response 
+protocols, authentication in distributed systems) 
+• Mobile Security (mobile networks, Internet-of-Things, SmartCities) 
+• Network Security (security protocols, virtual private networks, secure 
+Internet services) 
+• User-tools for IT-Security and Privacy in daily practise (email, web, chat, 
+filesystems) 
+This module is under constant development to reflect the most recent 
+developments. 
+Teaching Methods Lecture (2 hours/week), Exercise (2 hours/week) 
+Requirements for 
+Participation 
+Decent programming skills and basic knowledge in IT-security 
+Literature / Multimedia-
+based Teaching Material • Eckert, C. (2018). IT-Sicherheit. Berlin, München, Boston. De Gruyter. 
+• Stallings, W. (2016). Cryptography and network security, principles and 
+practices (7th edition). Prentice Hall. 
+• Paar, C., & Pelzl, J. (2010). Understanding Cryptography. Berlin, 
+Heidelberg: Springer Berlin Heidelberg. 
+• Schneier, B. (1996), Applied Cryptography, John Wiley & Sons. 
+• Hoglund, G, & McGraw , G. (2004). Exploiting Software, how to break 
+code, Addison Wesley. 
+• Selected sources announced in the lecture. 
+Applicability Master of Applied Computer Science 
+Effort/ 
+Total Workload 
+ 
+Total 150 hours. Attendance: 60 hours, Self-Study incl. exam preparation: 90h. 
+ECTS/ Emphasis of the 
+Grade for the final Grade 
+5 CP (Emphasis of the Grade for the final Grade 5/120) 
+Performance Record • successfully completed exercises 
+• oral exam or written exam (>14 participants) 
+ 
+ 
+ 
+ 
+ 
+Module description "Applied Computer Science (M.Sc.)"               Content Page 12 
+Semester 1st semester 
+Frequency of Occurrence annually (WS) 
+Duration one semester 
+Type of Course Obligatory course from the area IT-Security 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+Module description "Applied Computer Science (M.Sc.)"               Content Page 13 
+ 
+Module Name 
+ 
+ 
+Mobile Systems (Mobile Systeme) 
+Module Responsibility 
+ 
+ 
+Prof. Dr. Michael Cebulla 
+Qualification Targets  
+ 
+Students learn about substantial concepts and technologies for the 
+development of smart, mobile applications. One focus area consists in the 
+programming with sensor data. 
+ 
+ 
+Content Know Understand Apply Analyze Assess Synthesize 
+Location-based 
+Services 
+x x x x x x 
+Communication x x x x x  
+Sensorics x x x x x  
+Activity Recognition x x x x x x   
+Track & Trace x x x x x x  
+Module Contents 
+ 
+Concepts and technologies for the development of advanced mobile 
+applications. Special focus lies on the contextual dependencies of system 
+behavior and the communication between different components. The following 
+topics are examined: 
+- Location-based Services: application of different localization services 
+with different properties, services for the visualization of geographical 
+data, management of geographical data, geofencing, location-based 
+social networking (lbsn) 
+- Communication in mobile applications: bluetooth, NFC, http etc. 
+- Acquisition of environmental data using sensoric interfaces 
+- Activity Recognition 
+- Track & Trace-applications: acquisition of position data and 
+environmental data, collection and management of data, automated 
+situation monitoring and recognition 
+Teaching Methods 
+ 
+Lecture (2 hours/week), excercise (2 hours/week) 
+Requirements for 
+Participation 
+ 
+Skills and Knowledge in Programming with Java and Android 
+Literature / 
+Multimediabased Teaching 
+Material 
+Bill Philips, Chris Stewart, Brian Hardy, Kristin Marsiciano, Android 
+Programming – The big Nerd Ranch Guide (2nd Edition), Big Nerd Ranch. 
+Thomas Künneth, Android 5 -  Apps entwickeln mit dem Android SDK, Galileo 
+Press, Bonn 2012 
+Greg Milette, Adam Stroud, Professional Android Sensor Programming, John 
+Wiley, Indianapolis 2012  
+Applicability 
+ 
+Master of Applied Computer Science 
+Effort/ 
+Total Workload 
+150 hours: 60 hours presence, 45 hours self-study, 45 hours preparation of 
+exam 
+ECTS / Emphasis of the 
+Grade for the final Grad 
+5 CP (Emphasis of the Grade for the final Grade 5/120) 
+Performance Record Written exam 
+Semester  
+ 
+2nd semester 
+Frequency of Occurrence 
+ 
+Once a year 
+ 
+ 
+ 
+ 
+ 
+Module description "Applied Computer Science (M.Sc.)"               Content Page 14 
+Duration One semester 
+Type of Course 
+ 
+Obligatory course from the area distributed and mobile systems 
+  
+ 
+ 
+ 
+ 
+ 
+Module description "Applied Computer Science (M.Sc.)"               Content Page 15 
+Module Name 
+ 
+ 
+Service-Oriented Networks 
+Module Responsibility 
+ 
+Prof. Dr.-Ing. Heinz-Peter Höller 
+Qualification Targets 
+ 
+Students 
+- will get advanced knowledge on the requirements of multimedia 
+streams in networks,  
+- should be able to correlate deficiencies in the quality of network 
+services with properties of the network and traffic characteristics, 
+- will get advanced knowledge on the approach of quality of service and 
+congestion control, 
+- should be able to identify and to analyze quality of service as well as 
+congestion control approaches at all concerned OSI levels and  
+- should be able to react on shift and variation of quality of service when 
+programming distributed systems. 
+Module Contents 
+ 
+ 
+Modern applications and their requirements for networks 
+Congestion control 
+Quality of service 
+• classes of service 
+• signaling 
+• traffic management 
+• buffer management 
+TCP congestion control 
+quality of service at OSI level two (ATM, LAN, MPLS) 
+Internet quality of service  
+• Integrated services 
+• Differentiated services 
+Advanced transport control protocols 
+Teaching Methods 
+ 
+Seminar-like lecture (3 hours/week) 
+Exercises and discussions to deepen the knowing (1 hour/week) 
+Requirements for 
+Participation 
+There are no formal prerequisites. Good knowledge in communication networks 
+is expected.  
+Literature / Multimedial-
+based Teaching Material 
+Badach, A., Voice over IP Die Technik, Hanser, München, 2005. 
+Braun, T. & Zitterbart, M.. Hochleistungskommunikation, Band 2: 
+Transportdienste und –protokolle.Oldenbourg Verlag 1996. 
+Kurose, J.F. & Ross, K.W. Computernetzwerke. Pearson Studium, München 
+2008. 
+Lu, G., Communication and Computing for Distributed Multimedia 
+Systems.Artech House 1996. 
+Schmitz, R., Kiefer, R., Maucher, J., Schulze, J. &Suchy, T. Kompendium 
+Medieninformatik. Mediennetze. Springer 2006. 
+Shin, J., Lee, D.C. &Kuo, C.-C.J., Quality of Service for Internet 
+Multimedia,Prentice Hall 2004 
+Siegel, E.D., Quality of Service. Solutions for the Enterprise.Wiley 2000 
+Stalling, W.. Quality of Service and Quality of Experience. The Internet Protocol 
+Journal (2016, March), 14-40. 
+Applicability 
+ 
+„Service-Oriented Networks“ is compulsory in the master program. Gained 
+expertise is essential where quality of service issues have to be considered.  
+Effort / Total Workload Total 150 hours. Attendance: 60 hours, Self-Study: 45 hours, Exam Preparation 
+45 hours 
+ECTS / Emphasis of the 
+Grade for the final Grade 
+5 CP (Emphasis of the Grade for the final Grade 5/120) 
+Performance Record Oral examination 
+Semester  2nd semester 
+Duration One semester 
+Type of Course Obligatory 
+ 
+ 
+ 
+ 
+ 
+Module description "Applied Computer Science (M.Sc.)"               Content Page 16 
+Module Name 
+ 
+Signals and Systems 
+Module Responsibility Prof. Dr. Martin Golz  
+Qualification Targets  
+ 
+The students will get the opportunity to 
+- Analyse typical problems of signal processing, 
+- Comprehend integral transforms of continuous functions, 
+- Comprehend the discrete Fourier transforms of sequences, 
+- Comprehend and apply the discrete Fourier transform, 
+- Comprehend and apply digital filters, 
+- Comprehend and apply spectral estimation of stochastic signals,  
+- Comprehend and apply time-frequency analysis,  
+- Know some of the mathematical background issues. 
+ 
+  
+  
+Contents 
+Know &  
+Comprehend 
+Apply 
+Analyse & 
+Evaluate 
+Synthesise 
+Fourier integral X     
+Fourier series X    
+Convolution integral X X   
+Sampling theorem & aliasing X X X  
+Diskrete Fourier transform X X X  
+Linear time-invariant systems X X X  
+stochastic processes, spectral estimation X X X  
+Time-Frequency analysis X X X  
+  
+Module Contents 
+ 
+8. Introduction 
+9. Fourier integral 
+9.1. Integral transforms, Fourier kernel 
+9.2. Dirichlet conditions, properties 
+9.3. Elementary signals 
+9.4. Signal energy, signal power, decibel, band width 
+10. Fourier series 
+11. Convolution 
+12. Sampling theorem 
+13. Discrete Fourier transform 
+13.1. Properties 
+13.2. Discrete Walsh transform, z-transform 
+14. Linear, time-invariant systems 
+14.1. Properties 
+14.2. Impulse response, transfer function, Bode plot 
+14.3. Pole-Zero plot, stability 
+14.4. State space description 
+15. Stochastic signals 
+15.1. Properties 
+15.2. Probability density function 
+15.3. Wiener-Khinchin theorem, power spectral density 
+15.4. Cepstrum 
+15.5. Spectral estimation 
+15.6. Applications 
+16. Time-frequency analysis 
+16.1. Short-time Fourier transform 
+ 
+ 
+ 
+ 
+ 
+Module description "Applied Computer Science (M.Sc.)"               Content Page 17 
+16.2. Gabor series 
+16.3. Wavelet transform 
+16.4. Applications 
+ 
+Teaching methods 
+ 
+- Frontal lectures with 
+o Digital presentation slides,  
+o Demonstration programs 
+- Exercises held in the computer pool 
+o Programming with MATLAB and signal processing toolbox 
+o Clarification of open issues 
+ 
+Requirements for 
+Participation 
+No formal requirements 
+Basic knowledge in linear algebra, analysis, statistics 
+  
+Literature 
+ 
+The following books are recommended: 
+- Oppenheim (1997) Signals and systems. Prentice Hall  
+- Haykin, van Veen (2003) Signals and systems. Wiley 
+- Percival, Walden (2000) Wavelet methods for time series analysis. 
+Cambridge University Press 
+ 
+Applicability This module is an obligatory subject.  
+An appropriation to similar majors is possible under stipulation of their 
+examination regulations.  
+ 
+Effort / Total Workload Total 150 hours. Attendance: 60 hours, Self-Study: 45 hours, Exam Preparation 
+45 hours 
+ECTS / Emphasis of the 
+Grade for the final Grade 
+5 CP (Emphasis of the Grade for the final Grade 5/120) 
+Performance Record Oral examination (30 minutes) 
+Semester  1st Semester 
+Frequency of Occurrence Once during the academic year 
+Duration One semester  
+Type of Course Obligatory subject 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+Module description "Applied Computer Science (M.Sc.)"               Content Page 18 
+Module Name 
+ 
+ 
+Web Applications 
+Module Responsibility 
+ 
+ 
+Prof. Dr. Erwin Neuhardt 
+Qualification Targets 
+ 
+The students get to know the structure and the functionality of a web application. 
+They will know two frameworks for building web applications based on the 
+programming language Java. They get to know REST which is a standard for 
+communicating between applications. The students know how to apply a 
+framework for building web applications. They know the advantages and 
+disadvantages of different frameworks. 
+Contents Know Understand Apply Analyse Assess Synthesize 
+HTML, CSS, HTTP x x x    
+Model-View-
+Controller x x x x x  
+Spring MVC x x x x x  
+Vaadin x x x x x  
+REST x x x x x   
+Module Contents 
+ 
+Elements of a web application: HTML. CSS, HTTP, Model-View-Controller 
+Pattern, creating different parts of a web application with a framework, forms, 
+validation, creating a response page, error handling, layout of web pages, 
+reusable parts of web pages, principles of REST, elements of a REST interface, 
+implementation of a REST interface 
+Teaching Methods 
+ 
+Lecture and tutorial (3+1 hours per week) 
+Requirements for 
+Participation 
+ 
+Skills and knowledge in Java programming and software engineering (at least 
+10 ECTS) 
+Literature / Multimedia-
+based Teaching Material 
+Johnson, Rod et al.: Spring Framework Reference Documentation, online at 
+docs.spring.io 
+w/o author: Spring Guides, online at spring.io/guides 
+w/o author: Apache FreeMarker, online at freemarker.org 
+w/o author: Bootstrap, online at getbootstrap.com 
+w/o author: Vaadin Documentation, online at vaadin.com 
+Burke, B.: RESTful Java with JAX-RS 2.0, O'Reilly, 2014 
+Applicability 
+ 
+Master of Applied Computer Science, Master Angewandte Medieninformatik 
+Effort / Total Workload 
+ 
+Total 150 hours. Attendance: 60 hours, Self-Study: 60 hours, Exam Preparation 
+30 hours 
+ECTS / Emphasis of the 
+Grade for the final Grade 
+5 ECTS (Emphasis of the Grade for the final Grade 5/120) 
+Performance Record Written examination on PC (120 min) 
+Semester  
+ 
+3 rd semester 
+Frequency of Occurrence 
+ 
+Once during the academic year 
+Duration One semester 
+Type of Course 
+ 
+Obligatory course 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Module description "Applied Computer Science (M.Sc.)"               Content Page 19 
+ 
+ 
+ 
+ 
+Optional section I 
+  
+ 
+ 
+ 
+ 
+ 
+Module description "Applied Computer Science (M.Sc.)"               Content Page 20 
+Module Name 
+ 
+ 
+IT-Security (adv. chapters) 
+Module Responsibility 
+ 
+ 
+Prof. Ralf C. Staudemeyer, Ph.D. 
+Qualification Targets 
+ 
+This course teaches students to improve their ability to understand and master 
+current developments in IT-Security and Privacy-Enhancing Technologies (PET). 
+Students learn research techniques that they will apply on pre-selected research 
+topics. Aside from a comprehensive literature research, students will develop a 
+scientific contribution. Results will be presented in form of a conference 
+contribution. This includes a presentation and an academic publication. 
+Module Contents 
+ 
+This course takes place in form of an academic conference. Students go 
+thought the typical phases of a scientific contribution: extended abstract, review, 
+camera ready version, full paper and 30minutes presentation. All presentations 
+will be in the course of an internal conference-like event open to all university 
+members near the end of the semester. A selection of the written contributions 
+will be published in form of a technical report. Overall, the event comes with few 
+meetings of all participants. Questions that arise during the processing of the 
+individual research topics are clarified within working groups and with the 
+lecturer at regular individual meetings. 
+Typical “hot” research topics are, for example, in the areas 
+• Security monitoring and visualization 
+• Internet-of-Things // Industry4.0 
+• Privacy-Enhancing Technologies 
+• Machine Learning in IT-Security 
+Teaching Methods 
+ 
+lecture (2 SWS), exercises (2 SWS) 
+students per course: restricted; exercises: 10 
+Requirements for 
+Participation 
+ 
+Basic knowledge in IT-security and cryptography 
+Literature / Multimedia-
+based Teaching Material 
+Selected sources for the preparation of current topics. 
+Applicability 
+ 
+Master of Applied Computer Science (MACS) 
+Master Angewandte Medieninformatik (MaI) 
+Effort/ 
+Total Workload 
+ 
+Total 150 hours: Attendance: 60 hours, Self-study incl. exam preparation: 90h. 
+ECTS/ Emphasis of the 
+Grade for the final Grade 
+5 CP (Emphasis of the Grade for the final Grade 5/120) 
+Performance Record • presentation (30min) 
+• academic publication (5pages) 
+Semester 
+ 
+2nd/ 3rd Semester (MACS/MaI) 
+Frequency of Occurrence 
+ 
+every semester 
+Duration one semester 
+Type of Course 
+ 
+Obligatory course from the area IT-Security 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+Module description "Applied Computer Science (M.Sc.)"               Content Page 21 
+Module Name 
+ 
+ 
+Distributed Systems Advanced Chapters (Vertiefung Verteilte Systeme) 
+Module Responsibility 
+ 
+ 
+Prof. Dr. Michael Cebulla 
+Qualification Targets 
+ 
+Students extend and deepen their knowledge about architectures of distributed 
+systems. They become acquainted with additional architectures and 
+development platforms. They develop their programming skills concerning the 
+development of distributed systems in practical exercises. Generally the focus 
+lies on the concept of intelligent middleware. 
+Content Know Understand Apply Analyze Assess Synthesize 
+Analysis and properties 
+of architectures 
+x x x x x  
+Service oriented 
+architectures 
+x x x x x  
+Stream Processing x x x x x  
+Actors and agents x x x x x    
+ 
+Module Contents 
+ 
+Advanced Topics in the Development of Distributed Systems: 
+- Architectures of Distributed Systems: Structure and Properties 
+- Serviceoriented Architectures: Properties, Solutions, Perspectives 
+- Data-driven Systems: Stream Processing 
+- Actor und Agent Systems 
+- Clustering, Container, Cloud Computing 
+Teaching Methods 
+ 
+Lectures (2 hrs/week), Exercise (2 hrs/week) 
+Requirements for 
+Participation 
+ 
+Programming skills in Java 
+Literature / Multimedia-
+based Teaching Material 
+Andrew S. Tanenbaum, Maarten van Steen, Distributed Systems: Principles and 
+Paradigms, Pearson Prentice Hall 2007 
+George F. Coulouris, Jean Dollimore, Tim Kindberg, Distributed Systems: 
+Concepts and Design, Pearson Prentice Hall, 2003 
+Nicolai M. Josuttis, SOA in Practice – The Art of Distributed Systems Design, 
+O’Reilly 2007 
+Raymond Roestenburg, Rob Bakker, Rob Williams, Akka in Action, Manning 
+Publication 2016 
+Fabio Bellifemine, Giovanni Caire, Dominic Greenwood, Developing Multi-Agent 
+Systems with JADE, John Wiley & Sons, 2004 
+ 
+Applicability 
+ 
+Master of Applied Computer Science, Master Angewandte Medieninformatik 
+Effort/ 
+Total Workload 
+150 hours: Presence 60 hours, 45 hours self-study, 45 hrs exam preparation 
+ECTS/ Emphasis of the 
+Grade for the final Grade 
+5 CP (Emphasis of the Grade for the final Grade 5/120) 
+Performance Record Written exam 
+Semester  1st or 3rd semester 
+Frequence of Occurrence 
+ 
+Every second year 
+Duration One semester 
+Type of Course Selectable course from the area distributed and mobile systems 
+Module Name 
+ 
+ 
+Semantic Technologies in Distributed Systems (Semantische 
+Technologien in verteilten Systemen) 
+ 
+ 
+ 
+ 
+ 
+Module description "Applied Computer Science (M.Sc.)"               Content Page 22 
+Module Responsibility 
+ 
+ 
+Prof. Dr. Michael Cebulla 
+Qualification Targets  
+ 
+Students understand concepts and technologies from the area „intellegent 
+middleware“ and are able to apply them. They are able to analyze and assess 
+existing solutions on the basis of these concepts. 
+ 
+Contents Know Understand Apply Analyze Assess Synthesize 
+Ontologies x x x x x  
+SOA-platforms / 
+Enterprise Service Bus 
+x x x x x  
+Situation monitoring/ 
+Complex Event 
+Processing 
+x x x x x  
+ 
+Module Contents 
+ 
+Concepts and technologies for intelligent middleware: 
+- Ontologies: concepts for semantic data management, ETL process, 
+ontology description languages, knowledge bases and inference 
+mechanisms 
+- Middleware platforms and architectures: Enterprise service bus, service 
+oriented architectures 
+- Process Mining 
+- Situation recognition: event-based architectures, event-based 
+programming, complex event processing 
+Teaching Methods 
+ 
+Lecture (2 SWS) 
+Requirements for 
+Participation 
+ 
+Java Programming 
+Literature / Multimedia- 
+based Teaching Material 
+Franz Baader, Deborah L. McGuinness, Daniele Nardi, Peter F. Patel-
+Schneider, The Description Logic Handbook (2nd Edition), Cambridge 
+University Press, 2010  
+David Chappell, Enterprise Service Bus: Theory in Practice, O’Reilly 2004 
+David Luckham, The Power of Events: An Introduction to Complex Event 
+Processing in Distributed Systems, Addison-Wesley 2002 
+Wil M. P. van der Aalst, Process Mining – Data Science in Action, Springer 2016 
+ 
+Applicability 
+ 
+Master of Applied Computer Science, Master Angewandte Medieninformatik 
+Effort/ 
+Total Workload 
+120 hrs, presence time 45 hours, self study 40 hrs, exam preparation 35 hrs 
+ECTS / Emphasis of the 
+Grade for the final Grade 
+4 CP (Emphasis of the grade for the final grade 4/120) 
+Performance Record Written exam 
+Semester  
+ 
+1st and 3rd Semester 
+Frequency of Occurrence 
+ 
+Every second year 
+Duration One Semester 
+Type of Course Selection area 
+  
+ 
+ 
+ 
+ 
+ 
+Module description "Applied Computer Science (M.Sc.)"               Content Page 23 
+Module Name 
+ 
+ 
+Software Quality (Softwarequalität) 
+Module Responsibility 
+ 
+ 
+Prof. Dr. Erwin Neuhardt 
+Qualification Targets 
+ 
+The students get to know different methods for describing and assuring software 
+quality. They know tools and methods for examining software quality. They can 
+apply these tools and methods to software projects. They can evaluate the 
+efficacy of the methods in different application contexts. 
+Contents Know Understand Apply Analyse Assess Synthesize 
+Definition of 
+software quality 
+x x x    
+Test methods x x x x x  
+Static analysis x x x x x  
+Software Metrics x x x x x  
+Theoretical 
+background of 
+static analysis 
+x x     
+ 
+Module Contents 
+ 
+Definition of software quality, test methods for unit test, integration test, system 
+test, static analysis, software metrics, tools and methods for examining software 
+quality and measuring metrics 
+Teaching Methods 
+ 
+Lecture (1 hour/week), tutorial (1 hour/week) 
+Requirements for 
+Participation 
+ 
+Skills and knowledge in Java programming and software engineering (at least 
+10 ECTS) 
+Literature / Multimedia-
+based Teaching Material 
+Binder, Robert V.: Testing object-oriented systems: models, patterns, and tools, 
+Addison-Wesley, 2000 
+w/o author: SonarCube Documentation, online at docs.sonarqube.org 
+Reichenbach, C.: Program Analysis Overview, 
+https://www.youtube.com/watch?v=ABqLrCf5BsA 
+Reichenbach, C.: Foundations of Dataflow Analysis, 
+https://www.youtube.com/watch?v=fWoc2bZZ59A 
+Reichenbach, C.: Computation, 
+https://www.youtube.com/watch?v=jnbMirDEByY 
+Applicability 
+ 
+Master of Applied Computer Science, Master Angewandte Medieninformatik 
+Effort / Total Workload Total 90 hours. Attendance: 30 hours, Self-Study: 40 hours, Exam Preparation 
+20 hours 
+ECTS / Emphasis of the 
+Grade for the final Grade 
+3 ECTS (Emphasis of the Grade for the final Grade 3/120) 
+Performance Record 
+ 
+Written Examination 
+Semester  
+ 
+2nd semester 
+Frequency of Occurrence 
+ 
+Once during the academic year 
+Duration 
+ 
+One semester 
+Type of Course 
+ 
+Compulsory optional course from the area software engineering 
+Module Name Text Mining and Search 
+ 
+ 
+ 
+ 
+ 
+Module description "Applied Computer Science (M.Sc.)"               Content Page 24 
+Module Responsibility 
+ 
+Prof. Dr. Englmeier 
+Qualification Targets 
+ 
+Knowing/Perceiving: Students learn essentials in content extraction and 
+information retrieval as the basis of content analysis in texts, which, in 
+turn, provide the theoretical basis for the successful design of advanced 
+content analysis. 
+Applying: The students implement the methods they learn while using 
+well-established tools for data analysis (for example, Apache Lucene), 
+which are valuable for the design of search engines. 
+Analyzing/Evaluating: In the teamwork of the project, the students apply 
+their theoretical design knowledge in the development of specialty search 
+engines. They embrace thus the design versatility in the development of 
+features for text analysis and retrieval. In their practical work they can 
+reflect the effectiveness and potentials of their design approaches. 
+Synthesizing: The result of the course is manifested in a course-wide 
+project that involves the development of a search engine with special 
+search features. Application development is thereby broken down into 
+smaller work packages. Each team (two or three students) assumes a 
+work package, organizes its individual tasks, and contributes to the 
+management of the overall project. 
+The self-empowered organization of the project work also includes 
+explorative learning. Students are so encouraged to learn new 
+methodologies or tools on their own (with support from the professor), 
+provided their individual part of the project work requires that. 
+Content Knowing Perceivin
+g 
+Applying Analyzing Evaluatin
+g 
+Synthesiz
+ing 
+Basics X X     
+User 
+interaction  X X X  X 
+Retrieval 
+models & 
+evaluation 
+X X X X X X 
+Apache 
+Lucene  X X X X X 
+Content 
+extraction X X X X X X 
+Indexing  X X X X X 
+Query 
+matching  X X X X X 
+ 
+ 
+ 
+ 
+ 
+Module description "Applied Computer Science (M.Sc.)"               Content Page 25 
+Module Contents 1. Fundamentals in Information Retrieval (IR) 
+• Basic IR concepts 
+• Regular Expressions 
+• XML 
+2. User Interaction 
+• User story structure & validation  
+• Feature charts 
+• User support 
+3. Retrieval models & evaluation 
+4. Apache Lucene 
+• Modules 
+• Integration (Java) 
+5. Indexing 
+• Tokenization 
+• Stopwords 
+• Stemming 
+• Synonyms 
+6. Query matching 
+• Query vectors 
+• Matching models 
+Teaching Modalities Lectures, workshops, team cooperation 
+Requirements for 
+Participation 
+Solid practical programming skills 
+Literature / Multimedia-
+based Teaching Material 
+Baeza-Yates, R.; Ribeiro-Neto, B.: “Modern Information Retrieval”, ACM 
+Press, New York, 1999. 
+McCandless, M. et al: “Lucene in Action”, Second Edition, Manning, 
+Stamford, 2010 
+Application examples from search engines in practice 
+Applicability Master Applied Computer Science 
+Effort/ 
+Total Workload 
+Total 90 hours. Attendance: 30 hours, Self-Study: 30 hours, Practical 
+work: 30 hours  
+ECTS/ Emphasis of the 
+Grade for the final Grade 
+3 CP (Emphasis of the Grade for the final Grade 3/120) 
+Performance Record Project work 
+Semester 2nd semester 
+Frequency of the course Once during the academic year (summer semester) 
+Duration One semester 
+Type of Course Compulsory elective course  
+ 
+ 
+ 
+ 
+ 
+Module description "Applied Computer Science (M.Sc.)"               Content Page 26 
+ 
+ 
+ 
+ 
+Optional section II 
+  
+ 
+ 
+ 
+ 
+ 
+Module description "Applied Computer Science (M.Sc.)"               Content Page 27 
+Module Name 
+ 
+eBusiness 
+Module Responsibility 
+ 
+ 
+Prof. Dr. Thomas Urban 
+Qualification Targets  
+ 
+Expertise is in terms of knowledge and understanding of business models and 
+processes, provides typical eBusiness architectures and social media 
+characteristics and the design of specific marketing requirements. The basic 
+technical standards are considered. Methodological expertise is sought in 
+particular in the process design, the implementation and realization of customer 
+relationship based marketing concepts in eBusiness. 
+Module Contents 
+ 
+Based on the technical and economics requirements regarding the 
+implementation of electronic business processes and the economic 
+characteristics of the Net Economy, different forms of communication and 
+transactions between business partners are discussed. This concerns the 
+design of the procurement (eProcurement), sales (eShop) and mediation 
+processes (eMarketplace) and on the other hand also with Web 2.0 created 
+electronic contact networks (eCommunitys). In addition to discussing the 
+system requirements, process design requirements and management 
+requirements specific design requirements on the marketing and 
+implementation of electronic platforms for business transactions are treated. 
+Teaching Methods 
+ 
+Overhead, Power-Point-slides 
+Requirements for 
+Participation 
+ 
+Basic knowledge of information management and distributed systems ; Basic 
+knowledge in business administration 
+Literature / Multimedia-
+based Teaching Material 
+Hass, B./Walsh, G./ Kilian, Th. (Hrsg.) (2008): Web 2.0 – Neue Perspektiven für 
+Marketing und Medien; Springer Verlag Heidelberg 
+Kollmann, T. (2013): E-Business, Gabler Verlag Wiesbaden 
+Meier, A./Stormer, H. (2008): eBusiness & eCommerce - Management der 
+digitalen Wertschöpfungskette; Springer Verlag Heidelberg, 2. Auflage 
+Merz, M. (2002): E-Commerce und E-Business, dpunkt.verlag Heidelberg 
+Sigler, C. (2010): Online-Medienmanagement 
+Thome, R. et al. (2005): Electronic Commerce und Electronic Business, Verlag 
+Vahlen München 
+Weiber, R. (2002): Handbuch Electronic Business, Gabler Verlag Wiesbaden 
+Wirtz, B. W. (2013): Electronic Business, Springer Gabler Verlag Wiesbaden 
+Applicability 
+ 
+The module aims to provide a practical orientation by specifying concrete 
+problems of business practices and exemplary propose solutions based on a 
+theoretical framework. Furthermore, realized through the integration of best-
+practice lectures the close integration of theory and practice. 
+Effort/ 
+Total Workload 
+ 
+Contact time/Presence studies 30 hours; Self-study and 50 hours; Test and 
+exam preparation time: 10 hours 
+ECTS/ Emphasis of the 
+Grade for the final Grade 
+3 
+ 
+ 
+ 
+ 
+ 
+Module description "Applied Computer Science (M.Sc.)"               Content Page 28 
+Performance Record written exam 
+Semester  
+ 
+2 
+Frequency of Occurrence 
+ 
+winter semester 
+Duration 1 semester 
+Type of Course 
+ 
+lecture 
+  
+ 
+ 
+ 
+ 
+ 
+Module description "Applied Computer Science (M.Sc.)"               Content Page 29 
+ 
+Module Name Human-Computer Interaction 
+Module Responsibility Prof. Dr. Englmeier 
+Qualification Targets Knowing/Perceiving: Students learn essentials in cognitive science as 
+the basis of human-machine communication, which, in turn, provide the 
+theoretical basis for the successful design of user interaction. They deal 
+in particular with the user and task analysis. 
+Applying: The theoretical knowledge guides the students in developing 
+user stories that serve as blueprints for the user interaction. The course 
+emphasizes the implementation of interaction in different environments 
+using, for example, the description language for user interfaces in mobile 
+applications (XAML etc.). It outlines in particular the role of natural 
+language in interaction. 
+Analyzing/Evaluating: Students develop in teams concrete user 
+interfaces for different tasks. According to the task and user analysis they 
+set up objectives, that are validated in the actual implementation. 
+Synthesizing: The result of the course is manifested in a course-wide 
+project that involves the development of an application with a high degree 
+of user interaction. Application development is thereby broken down into 
+smaller work packages. Each team (two or three students) assumes a 
+work package, organizes its individual tasks, and contributes to the 
+management of the overall project. 
+The self-empowered organization of the project work also includes 
+explorative learning. Students are so encouraged to learn new 
+methodologies or tools on their own (with support from the professor), 
+provided their individual part of the project work requires that. 
+Content Knowing Perceivi
+ng 
+Applying Analyzin
+g 
+Evaluati
+ng 
+Synthezi
+sing 
+Basics in 
+cognition 
+X X X X   
+User 
+analysis 
+X X X X X X 
+Design, 
+Impemen
+tation 
+X X X X X X 
+Evaluatio
+n 
+  X X X X 
+ 
+ 
+ 
+ 
+ 
+Module description "Applied Computer Science (M.Sc.)"               Content Page 30 
+Module Contents 
+ 
+1. Basics 
+• Essentials in Cognition 
+• Basic Information Retrieval (IR) concepts 
+• Regular Expressions 
+• XML 
+2. User Analysis 
+• How to Define Users and Tasks  
+• Mental Models 
+• Development of User Stories  
+3. Design, Implementation 
+• GUI controls 
+• XAML 
+• GUI Development in Different Environments 
+4. Evaluation 
+• Usability Principles 
+• Methods 
+Teaching Methods 
+ 
+Lectures supported with multimedia courses offered by ACM. Workshops, 
+team cooperation 
+Requirements for 
+Participation 
+Solid practical programming skills 
+Literature / Multimedia-
+based Teaching Material 
+Carroll, J.M.: ”Human-Computer Interaction in the New Millennium”, ACM 
+Press, New York, 2001.  
+Cohn, M.: “User Stories Applied”, Addison-Wesley, 2004. 
+Online Courses of ACM addressing User Stories und User-Centred 
+Design 
+Applicability Master Applied Computer Science 
+Effort/ 
+Total Workload 
+Total 150 hours. Attendance: 60 hours, Self-Study: 45 hours, Exam 
+Preparation 45 hours 
+ECTS/ Emphasis of the 
+Grade for the final Grade 
+5 CP (Emphasis of the Grade for the final Grade 5/120) 
+Performance Record Project work 
+Semester  2nd semester 
+Frequency of the course Once during the academic year (summer semester) 
+Duration One semester 
+Type of Course Elective course  
+  
+ 
+ 
+ 
+ 
+ 
+Module description "Applied Computer Science (M.Sc.)"               Content Page 31 
+Modul Name 
+ 
+ 
+Image Processing 1   
+Modul Responsibility 
+ 
+ 
+Prof. Dr. Klaus Chantelau 
+Qualification Targets  
+ 
+Students should be able 
+ 
+to analyse typical problems of the development of audio-visual digital formats   
+to understand the foundations of the compression of audio-visual signals  
+to understand the methods and the structure of audio-visual digital standards 
+(G7xx, mp3, GIF/PNG, JPEG, H26x, MPEG1 / 2 / 4 ) 
+to apply the most important mathematical and algorithmical methods for the 
+development of compression software moduls     
+ 
+Module Contents 
+ 
+Color Spaces, filtering processes, Fourier, DCT, and wavelet transform, image 
+segmentation, motion estimation and image recognition. A method for data 
+compression (entropy coding, transform coding, predictive coding), quantization, 
+signal processing of the human visual system, motion prediction  
+ 
+Teaching Methods 
+ 
+Blackboard lectures, PowerPoint slides, computer exercises.  
+Requirements for 
+Participation 
+ 
+Fundamentals of Linear Algebra and Programming, the scope of the Bachelor 
+Module Multimedia and Communications Systems.  
+ 
+Literature / Multimedia 
+based Teaching Material 
+„Digitale Bildcodierung“ - Jens Rainer Ohm 
+Springer 1995, ISBN 3-540-58579-6 
+ 
+“A Wavelet Tour of Signal Processing” - Stephane Mallat 
+Academic Press 1999, ISBN 0-12-466606-X  
+ 
+„Bildverarbeitung für die Medizin“ - Lehmann et al. 
+Springer 1997, ISBN3-540-61458-3 
+ 
+“Coding and Information Theory” - Steven Roman 
+Springer 1992 
+ 
+„Digitale Fernsehtechnik: Datenkompression und Übertragung für DVB“ 
+2.Auflage  - Ulrich Reimers 
+Springer 1997, ISBN 3-540-60945-8 
+ 
+Applicability 
+ 
+Master Applied Computer Science, Master Angewandte Medieninformatik 
+Effort/ Total Workload Total 150 hours. Attendance: 60 hours, Self-Study: 45 hours, Exam Preparation 
+45 hours 
+ECTS / Emphasis of the 
+Grade for the final Grade  
+5 CP (Emphasis of the Grade for the final Grade 5/120) 
+Performance Record Written examination 
+Semester  
+ 
+1st semester  
+ 
+Frequency of Occurence 
+ 
+Once during the academic year (winter semester) 
+Duration One semester 
+Type of Course 
+ 
+Elective course 
+ 
+ 
+ 
+ 
+ 
+ 
+Module description "Applied Computer Science (M.Sc.)"               Content Page 32 
+Module Name 
+ 
+ 
+Image Processing 2 
+Module Responsibility 
+ 
+ 
+Prof. Dr. Klaus Chantelau 
+Qualification Targets  
+ 
+The students should be able to 
+ 
+analyze typical problems of the processing of digital audio-visual signals  
+to understand the most important mathematical and algorithmic methods for 
+feature extraction, classification and 3D analysis of audio-visual signals. 
+The student should be able to apply mathematical and algorithmic methods for 
+the development of audio and image analysis software modules.  
+  
+Module Contents 
+ 
+Image acquisition and illumination, image conversion (front-background 
+separation, transformations, ...), image enhancement (filtering, segmentation, 
+labeling, ...), feature extraction, (geometry / contour descriptors, texture 
+descriptors, ...), 3D scene analysis, classification and measurement  
+Teaching Methods 
+ Blackboard lectures, PowerPoint slides, computer exercises.  
+Requirements for 
+Participation 
+ 
+Modul Image Processing 1 
+Literature / Multimedia 
+based Teaching Material 
+„Handbuch zur Industriellen Bildverarbeitung“, FhG IRB Verlag, 2007 
+ISBN 978-3-8167-7386-3 
+ 
+“Introduction to MPEG 7” - Manjunath, Salembier, Sikora 
+Wiley 2003, ISBN 0-471-48678-7  
+ 
+“Stereoanalyse und Bildsynthese”, O. Schreer, Springer 2005, ISBN 3-540-
+23439-X 
+Applicability 
+ 
+Master Medieninformatik, Master Applied Computer Science  
+Effort/ Total Workload Total 90 hours. Attendance: 30 hours, Self-Study: 45 hours, Exam Preparation 
+15 hours  
+ECTS / Emphasis of the 
+Grade for the final Grade  
+3 CP  
+Performance Record Written exam 
+Semester  
+ 
+3rd semester  
+Frequency of Occurence 
+ 
+Once during the academic year (winter semester) 
+Duration One semester 
+ 
+Type of Course 
+ 
+Elective Course 
+  
+ 
+ 
+ 
+ 
+ 
+Module description "Applied Computer Science (M.Sc.)"               Content Page 33 
+Modul Name 
+ 
+ 
+Media Production 1 
+Modul Responsibility 
+ 
+ 
+Prof. Dr. Klaus Chantelau 
+Qualification Targets  
+ 
+The students should be able to 
+ 
+− analyze typical problems in the field of video production 
+− to understand the technical quality features of videos 
+− to use the main software tools for video production.    
+− to use the lighting, recording and post-production equipment of a virtual 
+studio for video production . 
+Module Contents 
+ 
+Practically-oriented exercises with animation, audio and video production tools, 
+especially Maxon Cinema 4D, Adobe Master Collection. 
+Video camera technology, video lighting equipment. 
+Theory and practice of recording technology and the use of green screen 
+technology with real-time systems, video composition with Adobe After Effects 
+and video editing with Adobe Premiere and DaVinci Resolve. Sound creation and 
+composition with Cubase 
+Teaching Methods 
+ Slides, computer exercises (C4D, Adobe Master-Collection),  exercises in a 
+green screen studio. 
+Requirements for 
+Participation 
+ 
+The scope of the Bachelor Module Multimedia and Communications Systems.  
+Literature / Multimedia 
+based Teaching Material 
+ 
+„Professionelle Videotechnik“ - U. Schmidt 
+Springer 2000, ISBN 3-540-66854- 
+“Cinema 4D 12”, Andreas Ansanger, Galileo Design 2011, ISBN 9-783-836-21-
+7071 
+“Adobe After Effects CS 5”, Philippe Fontaine, Gaileo Design 2011, ISBN 978-3-
+8362-1593-0  
+Applicability 
+ 
+Master Angewandte Medieninformatik, Master Applied Computer Science 
+Effort/ Total Workload Total 90 hours. Attendance: 30 hours, Self-Study: 30 hours, Exam Preparation 30 
+hours  
+ECTS / Emphasis of the 
+Grade for the final Grade  
+3 CP  
+Performance Record Project and project defense  
+Semester  
+ 
+2nd semester  
+ 
+Frequency of Occurence 
+ 
+Once during the academic year (winter semester) 
+Duration One semester 
+Type of Course 
+ 
+Elective course 
+ 
