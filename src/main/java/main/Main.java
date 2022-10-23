@@ -1,4 +1,4 @@
-package org.example;
+package main;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
@@ -14,10 +14,10 @@ public class Main {
     public static void main(String[] args) {
 
         try {
-            PDDocument doc = PDDocument.load(new File("src/main/java/org/example/modules.pdf"));
+            PDDocument doc = PDDocument.load(new File("src/main/java/main/modules.pdf"));
             PDFTextStripper pdfStripper = new PDFTextStripper();
             String text = pdfStripper.getText(doc);
-            Files.write(Paths.get("src/main/java/org/example/result.txt"), text.getBytes());
+            Files.write(Paths.get("src/main/java/main/result.txt"), text.getBytes());
         } catch (IOException e){
             e.printStackTrace();
         }
