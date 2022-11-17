@@ -44,7 +44,9 @@ public class Main {
                 String result = "";
                 tokenStream.reset();
                 while (tokenStream.incrementToken()) {
-                    result += attribute.toString()+" ";
+                    if(attribute.toString().length() > 3){//min. 4 letters
+                        result += attribute.toString()+" ";
+                    }
                 }
                 chaptersTokenized[i] = result;
                 tokenStream.close();
@@ -61,7 +63,7 @@ public class Main {
                 for(String term : terms){
                     if(rank.containsKey(term))continue;
 
-                    //calculate tf
+                    //calculate term frequency
                     int tf = 0;
                     int fromIndex = 0;
                     while ((fromIndex = chapter.indexOf(term, fromIndex)) != -1 ){
@@ -69,29 +71,20 @@ public class Main {
                         fromIndex++;
                     }
 
-                    //calculate idf
-                    int idf = 0;
-                    for(String chapter2 : chaptersTokenized){
-                        if(chapter2.indexOf(term) != -1){
-                            idf++;
-                        }
-                    }
-
                     //calculate importance
-                    double importance = (double)tf/(double)idf;
-                    rank.put(term,importance);
+                    rank.put(term,(double)tf);
                 }
             }
 
             //sort the terms by importance (descending)
             List<Map.Entry<String, Double>> list;
-            HashMap<String, Double> rankSorted;
+            LinkedHashMap<String, Double> rankSorted;
             for(int i=0;i<rankPerChapter.size();i++){
                 HashMap<String, Double> rank = rankPerChapter.get(i);
                 list = new ArrayList<>(rank.entrySet());
                 list.sort(Map.Entry.comparingByValue(Comparator.reverseOrder()));
 
-                rankSorted = new HashMap<>();
+                rankSorted = new LinkedHashMap<>();
                 for (Map.Entry<String, Double> entry : list) {
                     rankSorted.put(entry.getKey(), entry.getValue());
                 }
@@ -99,9 +92,19 @@ public class Main {
             }
 
             //test - print most important terms for one chapter
-            HashMap<String, Double> rank = rankPerChapter.get(5);
+            //print the original words - does not work
+            int index = 0;
+            HashMap<String, Double> rank = rankPerChapter.get(index);
+            String chapter = chapters[index];
+            String[] chapterWords = chapter.split(" ");
             for (String key : rank.keySet()) {
-                System.out.println(key + " - " + rank.get(key));
+                String fullWords = "";
+                for(int i=0;i<chapterWords.length;i++){
+                    if(chapterWords[i].startsWith(key) && fullWords.indexOf(chapterWords[i]) == -1){
+                        fullWords += (" " + chapterWords[i]);
+                    }
+                }
+                System.out.println(fullWords + " - " + rank.get(key));
             }
 
         } catch (IOException e){
