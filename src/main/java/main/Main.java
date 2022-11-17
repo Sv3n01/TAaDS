@@ -1,6 +1,7 @@
 package main;
 
 import org.apache.lucene.analysis.TokenStream;
+import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
@@ -91,17 +92,36 @@ public class Main {
                 rankPerChapter.set(i,rankSorted);
             }
 
-            //test - print most important terms for one chapter
-            //print the original words - does not work
-            int index = 0;
+            //tokenize without stemming
+            StandardAnalyzer analyzer2 = new StandardAnalyzer(EnglishAnalyzer.getDefaultStopSet());
+            TokenStream tokenStream2;
+            String[] chaptersTokenizedNotStemmed = new String[chapters.length];
+            for(int i=0;i<chapters.length;i++){
+                tokenStream2
+                        = analyzer2.tokenStream("contents",
+                        new StringReader(chapters[i]));
+
+                CharTermAttribute attribute
+                        = tokenStream2.addAttribute(CharTermAttribute.class);
+                String result = "";
+                tokenStream2.reset();
+                while (tokenStream2.incrementToken()) {
+                    result += attribute.toString()+" ";
+                }
+                chaptersTokenizedNotStemmed[i] = result;
+                tokenStream2.close();
+            }
+
+            //print most important full words for one chapter
+            int index = 4;
             HashMap<String, Double> rank = rankPerChapter.get(index);
-            String chapter = chapters[index];
+            String chapter = chaptersTokenizedNotStemmed[index];
             String[] chapterWords = chapter.split(" ");
             for (String key : rank.keySet()) {
                 String fullWords = "";
                 for(int i=0;i<chapterWords.length;i++){
                     if(chapterWords[i].startsWith(key) && fullWords.indexOf(chapterWords[i]) == -1){
-                        fullWords += (" " + chapterWords[i]);
+                        fullWords += (chapterWords[i] + " ");
                     }
                 }
                 System.out.println(fullWords + " - " + rank.get(key));
