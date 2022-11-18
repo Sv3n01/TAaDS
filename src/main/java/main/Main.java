@@ -23,6 +23,8 @@ public class Main {
             String text = pdfStripper.getText(doc);
             Files.write(Paths.get("src/main/java/main/result.txt"), text.getBytes());
 
+            //PART 2
+
             //get chapters
             String[] chapters1 = text.split("Module Name|Modul Name");
             //remove the first chapter (table of contents)
@@ -76,6 +78,8 @@ public class Main {
                     rank.put(term,(double)tf);
                 }
             }
+
+            //PART 3
 
             //sort the terms by importance (descending)
             List<Map.Entry<String, Double>> list;
