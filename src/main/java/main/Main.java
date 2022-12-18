@@ -18,7 +18,7 @@ public class Main {
         /*
         get the matching esco skills for a chosen module
          */
-        List<Skill> skills = getSkillsForModule(0);
+        List<Skill> skills = getSkillsForModule(8);
         //print first 10 skills
         for(int i=0;i<10;i++){
             System.out.println(skills.get(i).preferredLabel);
@@ -33,7 +33,7 @@ public class Main {
             PDDocument doc = PDDocument.load(new File("src/main/java/main/modules.pdf"));
             PDFTextStripper pdfStripper = new PDFTextStripper();
             String text = pdfStripper.getText(doc);
-            Files.write(Paths.get("src/main/java/main/result.txt"), text.getBytes());
+            Files.write(Paths.get("src/main/java/main/modules.txt"), text.getBytes());
 
             //PART 2
 
