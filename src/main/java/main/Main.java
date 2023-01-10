@@ -18,15 +18,21 @@ public class Main {
         /*
         get the matching esco skills for a chosen module
          */
-        List<Skill> skills = getSkillsForModule(8);
+        List<Skill> skills = getSkillsForModule(0);
         //print first 10 skills
-        for(int i=0;i<10;i++){
+       for(int i=0;i<10;i++){
             System.out.println(skills.get(i).preferredLabel);
         }
+
+        /*LinkedHashMap terms = getMostImportantTerms(0);
+        Set<String> keys = terms.keySet();
+        for(String term : keys){
+            System.out.println(term);
+        }*/
     }
 
     //returns hashmap key: full words string, value: frequency of the word stem
-    public static LinkedHashMap getMostImportantTerms(int moduleIndex){
+    public static LinkedHashMap<String,Double> getMostImportantTerms(int moduleIndex){
         LinkedHashMap<String, Double> rankFullWords = new LinkedHashMap<>();
         try {
             //PDF to text
@@ -78,16 +84,40 @@ public class Main {
                 for(String term : terms){
                     if(rank.containsKey(term))continue;
 
-                    //calculate term frequency
-                    int tf = 0;
+                    /*
+                    tf(t,d) = n/N
+                    n is the number of times term t appears in the document d.
+                    N is the total number of terms in the document d.
+                    */
+                    double n = 0;
                     int fromIndex = 0;
                     while ((fromIndex = chapter.indexOf(term, fromIndex)) != -1 ){
-                        tf++;
+                        n++;
                         fromIndex++;
                     }
 
+                    double N = terms.length;
+                    double tf = n/N;
+
+                    /*
+                    idf(t,D) = log (N/( n))
+                    N is the number of documents in the data set.
+                    n is the number of documents that contain the term t among the data set.
+                    */
+                    N = chapters.length;
+                    n = 0;
+                    for(String chapterTokenized : chaptersTokenized){
+                        if(chapterTokenized.indexOf(term) != -1){
+                            n++;
+                        }
+                    }
+                    double idf = Math.log(N/n);
+
+                    double tdidf = tf * idf;
+
+
                     //calculate importance
-                    rank.put(term,(double)tf);
+                    rank.put(term,tdidf);
                 }
             }
 
