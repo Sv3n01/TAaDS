@@ -6,6 +6,7 @@ public class EscoEntry {
     public String altLabels;
     public String type;//Skill,Occupation,Concept
 
+    public String description;
 
     public EscoEntry(String conceptUri, String preferredLabel, String altLabels,String type){
         this.conceptUri = conceptUri;
