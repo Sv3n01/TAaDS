@@ -1,5 +1,6 @@
 package main;
 
+import com.jayway.jsonpath.JsonPath;
 import com.opencsv.CSVReader;
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
@@ -8,30 +9,111 @@ import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
 import org.apache.lucene.analysis.en.EnglishAnalyzer;
 
+import java.net.*;
+
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args) {
-        /*
-        get the matching esco skills for a chosen module
-         */
-        List<Skill> skills = getSkillsForModule(0);
-        //print first 10 skills
-       for(int i=0;i<10;i++){
-            System.out.println(skills.get(i).preferredLabel);
-        }
 
-        /*LinkedHashMap terms = getMostImportantTerms(0);
-        Set<String> keys = terms.keySet();
-        for(String term : keys){
-            System.out.println(term);
-        }*/
+    private static double tfIdfThreshold = 0.019;
+
+    public static void main(String[] args) {
+        printEscoEntries(0);
     }
 
-    //returns hashmap key: full words string, value: frequency of the word stem
+    public static void printTerms(int moduleIndex){
+        LinkedHashMap terms = getMostImportantTerms(moduleIndex);
+        Set<Map.Entry<String,Double>> termEntries = terms.entrySet();
+        for(Map.Entry<String,Double> entry : termEntries){
+            if(entry.getValue() > tfIdfThreshold){
+                System.out.println(entry.getKey() + " - " + entry.getValue());
+            }
+        }
+    }
+
+    public static void printEscoEntries(int moduleIndex){
+        List<EscoEntry> escoEntries = getEscoEntriesFromApi(moduleIndex);
+        //print Skills
+        System.out.println("--- SKILLS ---");
+        for(EscoEntry escoEntry : escoEntries){
+            if(escoEntry.type.equals("Skill")){
+                System.out.println(escoEntry.preferredLabel);
+            }
+        }
+        System.out.println("\n\n--- OCCUPATIONS ---");
+        for(EscoEntry escoEntry : escoEntries){
+            if(escoEntry.type.equals("Occupation")){
+                System.out.println(escoEntry.preferredLabel);
+            }
+        }
+
+        System.out.println("\n\n--- CONCEPTS ---");
+        for(EscoEntry escoEntry : escoEntries){
+            if(escoEntry.type.equals("Concept")){
+                System.out.println(escoEntry.preferredLabel);
+            }
+        }
+    }
+
+    public static List<EscoEntry> getEscoEntriesFromApi(int moduleIndex){
+        List<EscoEntry> escoEntries = new ArrayList<>();
+        String query = getApiQuery(moduleIndex);
+        try {
+            query = URLEncoder.encode(query, "UTF-8");
+            URL obj = new URL("https://ec.europa.eu/esco/api/search?text="+query+"&language=en");
+            HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+            con.setRequestMethod("GET");
+            con.setRequestProperty("Accept", "application/json,application/json;charset=UTF-8");
+            int responseCode = con.getResponseCode();
+            if (responseCode == HttpURLConnection.HTTP_OK) { // success
+                BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+                String inputLine;
+                StringBuffer response = new StringBuffer();
+
+                while ((inputLine = in.readLine()) != null) {
+                    response.append(inputLine);
+                }
+                in.close();
+
+                String json = response.toString();
+                Integer resultCount = JsonPath.read(json, "$._embedded.results.length()");
+                for(int i=0; i < resultCount; i++) {
+                    String preferredLabel = JsonPath.read(json, "$._embedded.results[" + i + "].title");
+                    String uri = JsonPath.read(json, "$._embedded.results[" + i + "].uri");
+                    String type = JsonPath.read(json, "$._embedded.results[" + i + "].className");
+                    EscoEntry escoEntry = new EscoEntry(uri,preferredLabel,"",type);
+                    escoEntries.add(escoEntry);
+                }
+            } else {
+                System.out.println("GET request did not work.");
+            }
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (ProtocolException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return escoEntries;
+    }
+
+    //get the search string for the esco api
+    public static String getApiQuery(int moduleIndex){
+        LinkedHashMap terms = getMostImportantTerms(moduleIndex);
+        Set<Map.Entry<String,Double>> termEntries = terms.entrySet();
+        String escoSearchString = "";
+        for(Map.Entry<String,Double> entry : termEntries){
+            if(entry.getValue() > tfIdfThreshold){
+                escoSearchString += entry.getKey() + " ";
+            }
+        }
+        return escoSearchString;
+    }
+
+    //returns hashmap key: full words string, value: tfidf score of the word stem
     public static LinkedHashMap<String,Double> getMostImportantTerms(int moduleIndex){
         LinkedHashMap<String, Double> rankFullWords = new LinkedHashMap<>();
         try {
@@ -113,11 +195,12 @@ public class Main {
                     }
                     double idf = Math.log(N/n);
 
-                    double tdidf = tf * idf;
+                    //tf * idf is in range from 0 to 1
+                    double tfidf = tf * idf;
 
 
                     //calculate importance
-                    rank.put(term,tdidf);
+                    rank.put(term,tfidf);
                 }
             }
 
@@ -158,7 +241,7 @@ public class Main {
                 tokenStream2.close();
             }
 
-            //print most important full words for one chapter
+            //create the most important full words for one chapter
             HashMap<String, Double> rank = rankPerChapter.get(moduleIndex);
             String chapter = chaptersTokenizedNotStemmed[moduleIndex];
             String[] chapterWords = chapter.split(" ");
@@ -178,11 +261,12 @@ public class Main {
         return rankFullWords;
     }
 
-    //returns all Skills
-    public static List<Skill> getSkills(){
-        List<Skill> skills = new ArrayList<>();
+    //Deprecated. Use api now.
+    //returns all esco entries
+   /* public static List<EscoEntry> getEscoEntries(){
+        List<EscoEntry> escoEntries = new ArrayList<>();
         try {
-            CSVReader reader = new CSVReader(new FileReader("src/main/java/main/skills_en.csv"));
+            CSVReader reader = new CSVReader(new FileReader("src/main/java/main/esco_entries_en.csv"));
             String [] nextLine;
 
             int lineIndex = 0;
@@ -191,8 +275,8 @@ public class Main {
                     lineIndex++;
                     continue;//skip first 2 lines
                 }
-                Skill skill = new Skill(nextLine[1],nextLine[4],nextLine[5]);
-                skills.add(skill);
+                EscoEntry escoEntry = new EscoEntry(nextLine[1],nextLine[4],nextLine[5],"");
+                escoEntries.add(escoEntry);
             }
 
         } catch (FileNotFoundException e) {
@@ -200,25 +284,26 @@ public class Main {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        return skills;
-    }
+        return escoEntries;
+    }*/
 
     /*
-    Return the matching skills for a module
+    Deprecated. Use api now.
+    Return the matching esco entries for a module
     for the 10 most important words of the module
-    count how many of the words appear in the skill description
-    sort the skills descending
+    count how many of the words appear in the esco entry description
+    sort the esco entries descending
     */
-    public static List<Skill> getSkillsForModule (int moduleIndex){
-        List<Skill> skillsAll = getSkills();
+    /*public static List<EscoEntry> getEscoEntriesForModule (int moduleIndex){
+        List<EscoEntry> escoEntriesAll = getEscoEntries();
         HashMap<String,Double> termsRank = getMostImportantTerms(moduleIndex);
-        HashMap<String,Double> skillsRank = new HashMap();
-        double termsInSkillCount;
+        HashMap<String,Double> escoEntriesRank = new HashMap();
+        double escoEntryScore;
 
-        for(Skill skill : skillsAll){
-            termsInSkillCount = 0;
+        for(EscoEntry escoEntry : escoEntriesAll){
+            escoEntryScore = 0;
 
-            String altLabels = skill.altLabels;
+            String altLabels = escoEntry.altLabels;
             //first 10 terms
             List<Map.Entry<String, Double>> termEntries = new ArrayList<>(termsRank.entrySet());
             int termIndex = 0;
@@ -228,27 +313,27 @@ public class Main {
                 String[] fullTermsArray = fullTerms.split(" ");
 
                 for(String term : fullTermsArray){
-                    if(altLabels.contains(term))termsInSkillCount++;
+                    if(Arrays.asList(altLabels.split(" ")).contains(term))escoEntryScore += entry.getValue();
                 }
 
                 termIndex++;
             }
-            skillsRank.put(skill.conceptUri,termsInSkillCount);
+            escoEntriesRank.put(escoEntry.conceptUri,escoEntryScore);
         }
 
-        LinkedHashMap<String,Double>  skillSorted = sortHashmapDesc(skillsRank);
-        List<Skill> skills = new ArrayList();
-        for (Map.Entry<String,Double> entry : skillSorted.entrySet()){
-            for(Skill skill: skillsAll){
-                if(skill.conceptUri == entry.getKey()){
-                    skills.add(skill);
+        LinkedHashMap<String,Double>  escoEntriesSorted = sortHashmapDesc(escoEntriesRank);
+        List<EscoEntry> escoEntries = new ArrayList();
+        for (Map.Entry<String,Double> entry : escoEntriesSorted.entrySet()){
+            for(EscoEntry escoEntry : escoEntriesAll){
+                if(escoEntry.conceptUri == entry.getKey()){
+                    escoEntries.add(escoEntry);
                     break;
                 }
             }
         }
 
-        return skills;
-    }
+        return escoEntries;
+    }*/
 
     //sort hashmap descending
     public static LinkedHashMap sortHashmapDesc(HashMap<String,Double> map){
