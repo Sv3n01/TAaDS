@@ -15,13 +15,72 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Main {
 
-    private static double tfIdfThreshold = 0.019;
+    private static double tfIdfThreshold = 0.019;//0.019
+    private static String escoApiQuery;
+    private static String[] courses = {
+            "(1) Agile Software Development",
+            "(2) Computer Graphics 1",
+            "(3) Computational Intelligence",
+            "(4) Distributed Systems",
+            "(5) IT Security",
+            "(6) Mobile Systems",
+            "(7) Service-oriented Networks",
+            "(8) Signals & Systems",
+            "(9) Web Applications ",
+            "(10) IT-Security (adv. chapters)",
+            "(11) Distributed Systems Advanced Chapters",
+            "(12) Semantic Technologies in Distributed Systems",
+            "(13) Software Quality",
+            "(14) Text Mining Search",
+            "(15) eBusiness",
+            "(16) Human-Computer Interaction",
+            "(17) Image Processing 1",
+            "(18) Image Processing 2 ",
+            "(19) Media Production 1",
+    };
 
     public static void main(String[] args) {
-        printEscoEntries(0);
+        int n;
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));;
+
+        for(String course : courses){
+            System.out.println(course);
+        }
+        System.out.print("\nEnter Course number: ");
+        try {
+            n = Integer.parseInt(br.readLine());
+            n--;//index
+            System.out.print("\n\n---"+courses[n]+"---\n\n");
+            printEscoEntries(n);
+
+            System.out.print("\nAgain? (y/n): ");
+            String s = br.readLine();
+            System.out.print("\n");
+            while(s.equals("y")){
+                for(String course : courses){
+                    System.out.println(course);
+                }
+                System.out.print("\nEnter Course number: ");
+                n = Integer.parseInt(br.readLine());
+                n--;//index
+                System.out.print("\n\n---"+courses[n]+"---\n\n");
+                printEscoEntries(n);
+
+                System.out.print("\nAgain? (y/n): ");
+                s = br.readLine();
+            }
+        } catch(NumberFormatException nfe) {
+            System.err.println("Invalid Format!");
+            return;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return;
+        }
     }
 
     public static void printTerms(int moduleIndex){
@@ -36,8 +95,12 @@ public class Main {
 
     public static void printEscoEntries(int moduleIndex){
         List<EscoEntry> escoEntries = getEscoEntriesFromApi(moduleIndex);
+
+        System.out.println("--- Most Relevant Terms ---");
+        System.out.println(escoApiQuery);
+
         //print Skills
-        System.out.println("--- SKILLS ---");
+        System.out.println("\n--- SKILLS ---");
         for(EscoEntry escoEntry : escoEntries){
             if(escoEntry.type.equals("Skill")){
                 System.out.println(escoEntry.preferredLabel);
@@ -61,6 +124,7 @@ public class Main {
     public static List<EscoEntry> getEscoEntriesFromApi(int moduleIndex){
         List<EscoEntry> escoEntries = new ArrayList<>();
         String query = getApiQuery(moduleIndex);
+        escoApiQuery = query;//save for other functions
         try {
             query = URLEncoder.encode(query, "UTF-8");
             URL obj = new URL("https://ec.europa.eu/esco/api/search?text="+query+"&language=en");
@@ -147,8 +211,23 @@ public class Main {
                 String result = "";
                 tokenStream.reset();
                 while (tokenStream.incrementToken()) {
-                    if(attribute.toString().length() > 3){//min. 4 letters
-                        result += attribute.toString()+" ";
+                    String stem = attribute.toString();
+                    //Filter out invalid stems
+                    Boolean validStem = true;
+                    if(stem.length() < 4){//min. 4 letters
+                        validStem = false;
+                    }
+                    //only letters (no numbers,special characters)
+                    Pattern digit = Pattern.compile("[0-9]");
+                    Pattern special = Pattern.compile ("[!@#$%&*()_+=|<>?{}.\\[\\]~-]");
+                    Matcher hasDigit = digit.matcher(stem);
+                    Matcher hasSpecial = special.matcher(stem);
+                    if(hasDigit.find() || hasSpecial.find()){
+                        validStem = false;
+                    }
+
+                    if(validStem){
+                        result += stem+" ";
                     }
                 }
                 chaptersTokenized[i] = result;
