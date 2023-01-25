@@ -240,7 +240,7 @@ public class Main {
                     }
                     //only letters (no numbers,special characters)
                     Pattern digit = Pattern.compile("[0-9]");
-                    Pattern special = Pattern.compile ("[!@#$%&*()_+=|<>?{}.\\[\\]~-]");
+                    Pattern special = Pattern.compile ("[!@#$%&*()_+=|<>?{}.\\[\\]~]");//-
                     Matcher hasDigit = digit.matcher(stem);
                     Matcher hasSpecial = special.matcher(stem);
                     if(hasDigit.find() || hasSpecial.find()){
