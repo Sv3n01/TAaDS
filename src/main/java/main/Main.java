@@ -91,16 +91,6 @@ public class Main {
         }
     }
 
-    public static void printTerms(int moduleIndex){
-        LinkedHashMap terms = getMostImportantTerms(moduleIndex);
-        Set<Map.Entry<String,Double>> termEntries = terms.entrySet();
-        for(Map.Entry<String,Double> entry : termEntries){
-            if(entry.getValue() > tfIdfThreshold){
-                System.out.println(entry.getKey() + " - " + entry.getValue());
-            }
-        }
-    }
-
     public static void printEscoEntries(int moduleIndex){
         List<EscoEntry> escoEntries = getEscoEntriesFromApiV2(moduleIndex, "skill");
 
@@ -179,6 +169,56 @@ public class Main {
         return escoEntries;
     }
 
+    //with sorting after retrieval
+    public static List<EscoEntry> getEscoEntriesFromApiV2(int moduleIndex, String type){
+        List<EscoEntry> entriesApi = getEscoEntriesFromApi(moduleIndex, type);
+        List<EscoEntry> entriesCsv = getEscoEntriesCSV();
+        //replace entriesApi by CSV file entries for more data
+        int apiIndex = 0;
+        for(EscoEntry entry : entriesApi){
+            for(EscoEntry entry2 : entriesCsv){
+                if(entry2.preferredLabel.equals(entry.preferredLabel)){
+                    entry2.type = entry.type;//more exact
+                    entriesApi.set(apiIndex,entry2);
+                }
+            }
+            apiIndex++;
+        }
+
+        //calculate score for entriesApi
+        LinkedHashMap<String,Double> queryTermsScore = getApiQueryWithScore(moduleIndex);
+        HashMap<Object,Double> entriesScored = new HashMap<>();
+        double score;
+        for(EscoEntry entry: entriesApi){
+            score = 0.0;
+            String entryText = entry.altLabels + " "; //+ entry.description;
+            String[] entryTextSplit = entryText.split(" |\n");
+            List<Map.Entry<String, Double>> queryTermsList = new ArrayList<>(queryTermsScore.entrySet());
+            for(Map.Entry<String,Double> queryEntry : queryTermsList){
+                String[] queryTermsSplit = queryEntry.getKey().split(" ");
+                outerLoop:
+                for(String queryEntrySplit : queryTermsSplit){
+                    for(String entryWord : entryTextSplit){
+                        if(entryWord.equalsIgnoreCase(queryEntrySplit)){
+                            score += queryEntry.getValue();
+                            break outerLoop;
+                        }
+                    }
+                }
+            }
+
+            entriesScored.put(entry,score);
+        }
+
+        LinkedHashMap<EscoEntry,Double> entriesScoredSorted = sortHashmapDesc(entriesScored);
+        List<Map.Entry<EscoEntry, Double>> result1 = new ArrayList<>(entriesScoredSorted.entrySet());
+        List<EscoEntry> result2 = new LinkedList<>();
+        for(Map.Entry<EscoEntry, Double> entry : result1){
+            result2.add(entry.getKey());
+        }
+        return result2;
+    }
+
     //get the search string for the esco api
     public static String getApiQuery(int moduleIndex){
         LinkedHashMap terms = getApiQueryWithScore(moduleIndex);
@@ -211,7 +251,6 @@ public class Main {
             PDDocument doc = PDDocument.load(new File("src/main/java/main/modules.pdf"));
             PDFTextStripper pdfStripper = new PDFTextStripper();
             String text = pdfStripper.getText(doc);
-            Files.write(Paths.get("src/main/java/main/modules.txt"), text.getBytes());
 
             //PART 2
 
@@ -374,56 +413,6 @@ public class Main {
             e.printStackTrace();
         }
         return rankFullWords;
-    }
-
-    //with sorting after retrieval
-    public static List<EscoEntry> getEscoEntriesFromApiV2(int moduleIndex, String type){
-        List<EscoEntry> entriesApi = getEscoEntriesFromApi(moduleIndex, type);
-        List<EscoEntry> entriesCsv = getEscoEntriesCSV();
-        //replace entriesApi by CSV file entries for more data
-        int apiIndex = 0;
-        for(EscoEntry entry : entriesApi){
-            for(EscoEntry entry2 : entriesCsv){
-                if(entry2.preferredLabel.equals(entry.preferredLabel)){
-                    entry2.type = entry.type;//more exact
-                    entriesApi.set(apiIndex,entry2);
-                }
-            }
-            apiIndex++;
-        }
-
-        //calculate score for entriesApi
-        LinkedHashMap<String,Double> queryTermsScore = getApiQueryWithScore(moduleIndex);
-        HashMap<Object,Double> entriesScored = new HashMap<>();
-        double score;
-        for(EscoEntry entry: entriesApi){
-            score = 0.0;
-            String entryText = entry.altLabels + " "; //+ entry.description;
-            String[] entryTextSplit = entryText.split(" |\n");
-            List<Map.Entry<String, Double>> queryTermsList = new ArrayList<>(queryTermsScore.entrySet());
-            for(Map.Entry<String,Double> queryEntry : queryTermsList){
-                String[] queryTermsSplit = queryEntry.getKey().split(" ");
-                outerLoop:
-                for(String queryEntrySplit : queryTermsSplit){
-                    for(String entryWord : entryTextSplit){
-                        if(entryWord.equalsIgnoreCase(queryEntrySplit)){
-                            score += queryEntry.getValue();
-                            break outerLoop;
-                        }
-                    }
-                }
-            }
-
-            entriesScored.put(entry,score);
-        }
-
-        LinkedHashMap<EscoEntry,Double> entriesScoredSorted = sortHashmapDesc(entriesScored);
-        List<Map.Entry<EscoEntry, Double>> result1 = new ArrayList<>(entriesScoredSorted.entrySet());
-        List<EscoEntry> result2 = new LinkedList<>();
-        for(Map.Entry<EscoEntry, Double> entry : result1){
-            result2.add(entry.getKey());
-        }
-        return result2;
     }
 
 
