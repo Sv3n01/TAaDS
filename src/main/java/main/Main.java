@@ -15,6 +15,8 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -45,6 +47,12 @@ public class Main {
     };
 
     public static void main(String[] args) {
+        Logger apacheLogger = java.util.logging.Logger.getLogger("org.apache.pdfbox.pdmodel.font.PDTrueTypeFont");
+        apacheLogger.setLevel(Level.OFF);
+        apacheLogger = java.util.logging.Logger.getLogger("org.apache.pdfbox.cos.COSDocument");
+        apacheLogger.setLevel(Level.OFF);
+
+
         int n;
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));;
 
@@ -94,41 +102,36 @@ public class Main {
     }
 
     public static void printEscoEntries(int moduleIndex){
-        //List<EscoEntry> escoEntries = getEscoEntriesFromApi(moduleIndex);
-        List<EscoEntry> escoEntries = getEscoEntriesFromApiV2(moduleIndex);
+        List<EscoEntry> escoEntries = getEscoEntriesFromApiV2(moduleIndex, "skill");
 
         System.out.println("--- Most Relevant Terms ---");
         System.out.println(escoApiQuery);
 
-        //print Skills
         System.out.println("\n--- SKILLS ---");
         for(EscoEntry escoEntry : escoEntries){
-            if(escoEntry.type.equals("Skill")){
-                System.out.println(escoEntry.preferredLabel);
-            }
-        }
-        System.out.println("\n\n--- OCCUPATIONS ---");
-        for(EscoEntry escoEntry : escoEntries){
-            if(escoEntry.type.equals("Occupation")){
-                System.out.println(escoEntry.preferredLabel);
-            }
+            System.out.println(escoEntry.preferredLabel);
         }
 
+        escoEntries = getEscoEntriesFromApiV2(moduleIndex, "occupation");
+        System.out.println("\n\n--- OCCUPATIONS ---");
+        for(EscoEntry escoEntry : escoEntries){
+            System.out.println(escoEntry.preferredLabel);
+        }
+
+        escoEntries = getEscoEntriesFromApiV2(moduleIndex, "concept");
         System.out.println("\n\n--- CONCEPTS ---");
         for(EscoEntry escoEntry : escoEntries){
-            if(escoEntry.type.equals("Concept")){
-                System.out.println(escoEntry.preferredLabel);
-            }
+            System.out.println(escoEntry.preferredLabel);
         }
     }
 
-    public static List<EscoEntry> getEscoEntriesFromApi(int moduleIndex){
+    public static List<EscoEntry> getEscoEntriesFromApi(int moduleIndex, String type){
         List<EscoEntry> escoEntries = new ArrayList<>();
         String query = getApiQuery(moduleIndex);
         escoApiQuery = query;//save for other functions
         try {
             query = URLEncoder.encode(query, "UTF-8");
-            URL obj = new URL("https://ec.europa.eu/esco/api/search?text="+query+"&language=en");
+            URL obj = new URL("https://ec.europa.eu/esco/api/search?type="+type+"&text="+query+"&language=en");
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
             con.setRequestMethod("GET");
             con.setRequestProperty("Accept", "application/json,application/json;charset=UTF-8");
@@ -148,17 +151,19 @@ public class Main {
                 Boolean isDigitalSkill;
                 for(int i=0; i < resultCount; i++) {
                     String uri = JsonPath.read(json, "$._embedded.results[" + i + "].uri");
-                    isDigitalSkill = false;
-                   for(String digitalUri : digitalSkillUris){
-                        if(digitalUri.contains(uri)){
-                            isDigitalSkill = true;
-                            break;
+                    if(type.equals("skill")){
+                        isDigitalSkill = false;
+                        for(String digitalUri : digitalSkillUris){
+                            if(digitalUri.contains(uri)){
+                                isDigitalSkill = true;
+                                break;
+                            }
                         }
+                        if(!isDigitalSkill)continue;
                     }
-                    if(!isDigitalSkill)continue;
                     String preferredLabel = JsonPath.read(json, "$._embedded.results[" + i + "].title");
-                    String type = JsonPath.read(json, "$._embedded.results[" + i + "].className");
-                    EscoEntry escoEntry = new EscoEntry(uri,preferredLabel,"",type);
+                    String typeJson = JsonPath.read(json, "$._embedded.results[" + i + "].className");
+                    EscoEntry escoEntry = new EscoEntry(uri,preferredLabel,"",typeJson);
                     escoEntries.add(escoEntry);
                 }
             } else {
@@ -235,9 +240,7 @@ public class Main {
                     String stem = attribute.toString();
                     //Filter out invalid stems
                     Boolean validStem = true;
-                    if(stem.length() < 4){//min. 4 letters
-                        validStem = false;
-                    }
+
                     //only letters (no numbers,special characters)
                     Pattern digit = Pattern.compile("[0-9]");
                     Pattern special = Pattern.compile ("[!@#$%&*()_+=|<>?{}.\\[\\]~]");//-
@@ -247,7 +250,8 @@ public class Main {
                         validStem = false;
                     }
 
-                    if(stem.equalsIgnoreCase("about")){
+                    //further stopwords
+                    if(stem.equalsIgnoreCase("about") || stem.equalsIgnoreCase("Berlin")){
                         validStem = false;
                     }
 
@@ -352,8 +356,15 @@ public class Main {
             for (String key : rank.keySet()) {
                 String fullWords = "";
                 for(int i=0;i<chapterWords.length;i++){
-                    if(chapterWords[i].startsWith(key) && fullWords.indexOf(chapterWords[i]) == -1){
-                        fullWords += (chapterWords[i] + " ");
+                    //only letters (no numbers,special characters)
+                    Pattern digit = Pattern.compile("[0-9]");
+                    Pattern special = Pattern.compile ("[!@#$%&*()_+=|<>?{}.\\[\\]~]");//-
+                    Matcher hasDigit = digit.matcher(chapterWords[i]);
+                    Matcher hasSpecial = special.matcher(chapterWords[i]);
+                    if(!hasDigit.find() && !hasSpecial.find()){
+                        if(chapterWords[i].startsWith(key) && fullWords.indexOf(chapterWords[i]) == -1){
+                            fullWords += (chapterWords[i] + " ");
+                        }
                     }
                 }
                 //System.out.println(fullWords + " - " + rank.get(key));
@@ -366,8 +377,8 @@ public class Main {
     }
 
     //with sorting after retrieval
-    public static List<EscoEntry> getEscoEntriesFromApiV2(int moduleIndex){
-        List<EscoEntry> entriesApi = getEscoEntriesFromApi(moduleIndex);
+    public static List<EscoEntry> getEscoEntriesFromApiV2(int moduleIndex, String type){
+        List<EscoEntry> entriesApi = getEscoEntriesFromApi(moduleIndex, type);
         List<EscoEntry> entriesCsv = getEscoEntriesCSV();
         //replace entriesApi by CSV file entries for more data
         int apiIndex = 0;
@@ -441,54 +452,6 @@ public class Main {
         }
         return escoEntries;
     }
-
-    /*
-    Deprecated. Use api now.
-    Return the matching esco entries for a module
-    for the 10 most important words of the module
-    count how many of the words appear in the esco entry description
-    sort the esco entries descending
-    */
-    /*public static List<EscoEntry> getEscoEntriesForModule (int moduleIndex){
-        List<EscoEntry> escoEntriesAll = getEscoEntries();
-        HashMap<String,Double> termsRank = getMostImportantTerms(moduleIndex);
-        HashMap<String,Double> escoEntriesRank = new HashMap();
-        double escoEntryScore;
-
-        for(EscoEntry escoEntry : escoEntriesAll){
-            escoEntryScore = 0;
-
-            String altLabels = escoEntry.altLabels;
-            //first 10 terms
-            List<Map.Entry<String, Double>> termEntries = new ArrayList<>(termsRank.entrySet());
-            int termIndex = 0;
-            for (Map.Entry<String, Double> entry : termEntries) {
-                if(termIndex == 10)break;
-                String fullTerms = entry.getKey();
-                String[] fullTermsArray = fullTerms.split(" ");
-
-                for(String term : fullTermsArray){
-                    if(Arrays.asList(altLabels.split(" ")).contains(term))escoEntryScore += entry.getValue();
-                }
-
-                termIndex++;
-            }
-            escoEntriesRank.put(escoEntry.conceptUri,escoEntryScore);
-        }
-
-        LinkedHashMap<String,Double>  escoEntriesSorted = sortHashmapDesc(escoEntriesRank);
-        List<EscoEntry> escoEntries = new ArrayList();
-        for (Map.Entry<String,Double> entry : escoEntriesSorted.entrySet()){
-            for(EscoEntry escoEntry : escoEntriesAll){
-                if(escoEntry.conceptUri == entry.getKey()){
-                    escoEntries.add(escoEntry);
-                    break;
-                }
-            }
-        }
-
-        return escoEntries;
-    }*/
 
     //sort hashmap descending
     public static LinkedHashMap sortHashmapDesc(HashMap<Object,Double> map){
